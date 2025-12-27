@@ -1,4 +1,4 @@
-let dataset
+var dataset
 
 document.addEventListener('DOMContentLoaded', () => {
     //loading both datasets:
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function parseData(){
 
-    svg = d3.select("#gantt-svg")
+    svg = d3.select("#cooler-gantt-svg")
 
     var margin = {top: 50, right: 50, bottom: 50, left: 50}
     var width = 900 - margin.left - margin.right
@@ -80,11 +80,11 @@ function parseData(){
         }
         data.push(bookset)
     })
-    drawGanttChart(data, svg, width, height, margin, x, colorScale, blockColorScale, booknames)
+    drawCoolGanttChart(data, svg, width, height, margin, x, colorScale, blockColorScale, booknames)
 }
 
 
-function drawGanttChart(data, svg, width, height, margin, x, colorScale, blockColorScale, booknames){
+function drawCoolGanttChart(data, svg, width, height, margin, x, colorScale, blockColorScale, booknames){
     console.log(data)
     var totalHeight = 0
     var spineHeight = 12
@@ -93,7 +93,7 @@ function drawGanttChart(data, svg, width, height, margin, x, colorScale, blockCo
     var horizontSpineWidth = 15
     var topOffset = 70
 
-            // pointers to date written and book name as well
+    // pointers to date written and book name as well
     const timelineDot = svg.selectAll(".timelineDot")
     .data(data, (d,idx)=>idx)
     .join(
