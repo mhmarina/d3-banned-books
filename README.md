@@ -1,2 +1,1 @@
-Created by Tyler, Thomas, Jacob, Marina and David for CSE 478: Data Visualization.
-I particularly worked on the innovative book stack visualization.
+These custom visualizations were created using <b>D3.js</b>. They show a more traditional Gantt chart and a more innovative one representing a stack of books. Created as part of final project for CSE478: Data Visualization
