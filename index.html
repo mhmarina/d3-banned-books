@@ -2,27 +2,33 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="coolerganttchart.js" async></script>
         <script src="ganttchart.js"></script>
         <title>Banned Books</title>
     </head>
     <body>
-        <div style="justify-items: center; display: grid; place-items: center;">
-            <h2>Banned Books</h2>
+        <div class="container">
+            <h2>Banned Books over The Years</h2>
+            <div class="svg-container">
+                <div class="svg-wrapper">
+                    <svg  viewBox="0 0 900 950" id="gantt-svg"></svg>
+                </div>
+                <div class="svg-wrapper">
+                    <svg  viewBox="0 0 900 950" id="cooler-gantt-svg"></svg>
+                </div>
+            </div>
             <p>This chart represents a timeline of some notable books: when they were banned, when the ban was lifted, and where.
                 Looking at when and where a specific book was banned gives us insight into the world. 
                 For example, the works of Einstein were banned in Germany by the Nazis in 1925 to promote Anti-Semitism, and branded his work as "Jewish Physics".
+                <br>
+                These custom visualizations were created using <b>D3.js</b>. They show a more traditional Gantt chart and a more innovative one representing a stack of books.
             </p>
-            <p>These custom visualizations were created using D3.js. They show a more traditional gantt chart as well as a more innovative one representing a stack of books.</p>
-            <div style="display: flex; flex-direction: row; gap: 15px">
-                <div>
-                    <svg id="gantt-svg"></svg>
-                </div>
-                <div>
-                    <svg id="cooler-gantt-svg"></svg>
-                </div>
-            </div>
+            <a href="https://github.com/mhmarina/CSE478-DataViz" target="_blank">
+                <i class="fa fa-github-alt"></i>
+            </a>  
         </div>
     </body>
 </html>

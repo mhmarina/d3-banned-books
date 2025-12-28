@@ -1,0 +1,36 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 4px 0
+}
+
+a {
+    text-decoration: none;
+    color: purple;
+    font-size: 30px;
+}
+
+.container{
+    justify-items: center; 
+    display: grid; 
+    place-items: center; 
+    align-items: center;
+}
+
+p {
+    max-width: 85%
+}
+
+svg {
+    width: 100%; 
+    height: auto;
+}
+
+.svg-container{
+    display: flex; 
+    flex-direction: 
+    row; gap: 10px;
+}
+
+.svg-wrapper{
+    width: 40vw
+}

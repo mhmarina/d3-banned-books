@@ -31,8 +31,8 @@ function drawGanttChart(){
        .attr("fill", "#fdf5e6")
        .on("click", (d) => {
             selected = false
-            svg.selectAll(".g-bars")
-               .classed("g-selected", false)
+            svg.selectAll(".bars")
+               .classed("selected", false)
                .attr("opacity", 1)
        })
 
@@ -84,7 +84,7 @@ function drawGanttChart(){
 
     // Drawing book titles
     svg.append('g')
-       .selectAll('.g-bookTitle')
+       .selectAll('.bookTitle')
        .data(data)
        .join('text')
        .attr("x", (d) => {
@@ -106,8 +106,8 @@ function drawGanttChart(){
        .attr("fill", "black")
        .attr("font-weight", "bolder")
        .attr("transform", `translate(${margin.left},${margin.top})`)
-       .classed("g-title", true)
-       .classed((d) => `g-${
+       .classed("title", true)
+       .classed((d) => `${
             d.bookname.replace(/\s+/g, "").replace(":","")
             }`, true)
 
@@ -144,7 +144,7 @@ function drawGanttChart(){
 
     // also draw something to represent when the book was made
     svg.append('g')
-       .selectAll('.g-creationDate')
+       .selectAll('.creationDate')
        .data(data)
        .join('circle')
        .attr("cx", (d)=>{return d.elements[0]['date'] < x.domain.min ? x(x.domain.min) : x(d.elements[0]['date'])})
@@ -160,10 +160,10 @@ function drawGanttChart(){
        .attr("r", 2.55)
        .attr("fill", "red")
        .attr("transform", `translate(${margin.left},${margin.top})`)
-       .classed("g-creation", true)
+       .classed("creation", true)
     //lines
     svg.append('g')
-          .selectAll('.g-creationDate')
+          .selectAll('.creationDate')
           .data(data)
           .join('line')
           .attr("x1", (d)=>{return d.elements[0]['date'] < x.domain.min ? x(x.domain.min): x(d.elements[0]['date'])})
@@ -188,7 +188,7 @@ function drawGanttChart(){
                 return (margin.top + spacing + 2.5);
                 }) 
           .attr("transform", `translate(${margin.left},${margin.top})`)
-          .classed("g-creation", true)
+          .classed("creation", true)
         
     i = 0;
     spacing = 0; 
@@ -215,36 +215,36 @@ function drawGanttChart(){
            .style("rx", 10)
            .style("ry", 10)
            .attr("transform", `translate(${margin.left}, ${margin.bottom})`)
-           .classed("g-bars", true)
-           .classed(`g-${
+           .classed("bars", true)
+           .classed(`${
             book.bookname.replace(/\s+/g, "").replace(":","")
             }`, true)
            .on("click", (d)=>{
                 selected = true
-                d3.selectAll(`.g-bars`)
+                d3.selectAll(`.bars`)
                   .attr("opacity", 0.25)
-                  .classed("g-selected", false)
-            d3.selectAll(`.g-${book.bookname.replace(/\s+/g, "").replace(":","")}`)
+                  .classed("selected", false)
+            d3.selectAll(`.${book.bookname.replace(/\s+/g, "").replace(":","")}`)
               .attr("opacity", 1)
-              .classed("g-selected", true)
+              .classed("selected", true)
             tidbit(book.bookname, data)})
            .on("mouseover", (d)=>{
                 if(!selected){
-                    d3.selectAll(`.g-bars`)
+                    d3.selectAll(`.bars`)
                     .attr("opacity", 0.5)
-                  d3.selectAll(`.g-${book.bookname.replace(/\s+/g, "").replace(":","")}`)
+                  d3.selectAll(`.${book.bookname.replace(/\s+/g, "").replace(":","")}`)
                     .attr("opacity", 1)  
                 }
            })
            .on("mouseout", (d)=>{
                 if(!selected){
-                    d3.selectAll(`.g-bars`)
+                    d3.selectAll(`.bars`)
                     .attr("opacity", 1)  
                 }
            })
         // write country name
         svg.append('g')
-           .selectAll('.g-countryText')
+           .selectAll('.countryText')
            .data(book.elements)
            .join('text')
            .attr("x", (d) => { return x(d['year'] - 8); })

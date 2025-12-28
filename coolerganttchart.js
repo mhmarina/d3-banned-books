@@ -85,7 +85,6 @@ function parseData(){
 
 
 function drawCoolGanttChart(data, svg, width, height, margin, x, colorScale, blockColorScale, booknames){
-    console.log(data)
     var totalHeight = 0
     var spineHeight = 12
     var barGaps = 10
